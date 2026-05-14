@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(mkdir -p \"D:\\\\Dropbox\\\\Claude Code\\\\festy-app\\\\src\\\\app\\\\admin\\\\festivals\\\\[id]\" \"D:\\\\Dropbox\\\\Claude Code\\\\festy-app\\\\src\\\\app\\\\admin\\\\festivals\\\\new\" && echo \"done\")",
+      "Bash(npx tsc *)",
+      "Bash(npm uninstall *)",
+      "Bash(npm run *)",
+      "Bash(Remove-Item \"D:\\\\Dropbox\\\\Claude Code\\\\festy-app\\\\src\\\\proxy.ts\" -Force)",
+      "Bash(mkdir -p \"D:\\\\Dropbox\\\\Claude Code\\\\festy-app\\\\.claude\" && echo \"done\")",
+      "mcp__Claude_Preview__preview_start",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__computer",
+      "Bash(node scripts/convert-festivals-csv.js)",
+      "Bash(node -e ' *)",
+      "Bash(node scripts/check-categories.js)",
+      "Bash(node scripts/migrate-images.js)",
+      "Bash(Get-ChildItem \"src\\\\app\\\\\\(app\\)\\\\info\" -Recurse)",
+      "mcp__Claude_in_Chrome__browser_batch",
+      "Bash(node scripts/import-experiences.js)",
+      "mcp__Claude_in_Chrome__get_page_text",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ]
+  }
+}
