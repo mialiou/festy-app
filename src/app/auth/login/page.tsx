@@ -1,9 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import "@/i18n";
 import { useTranslation } from "react-i18next";
+
+function AuthErrorBanner() {
+  const searchParams = useSearchParams();
+  const authError = searchParams.get("error");
+  const authDetails = searchParams.get("details");
+
+  if (!authError) return null;
+
+  return (
+    <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-red-700 break-all">
+      <p className="font-semibold mb-1">⚠️ Login fehlgeschlagen</p>
+      {authDetails && <p className="opacity-75">{authDetails}</p>}
+      {(authDetails?.includes("code_verifier") || authDetails?.includes("pkce")) && (
+        <p className="mt-1 text-red-600 font-medium">
+          Bitte öffne den Magic Link im selben Browser, wo du dich eingeloggt hast.
+        </p>
+      )}
+    </div>
+  );
+}
 
 export default function LoginPage() {
   const { t } = useTranslation();
@@ -41,6 +62,10 @@ export default function LoginPage() {
           <h1 className="text-3xl font-bold text-gray-900">{t("auth.loginTitle")}</h1>
           <p className="text-gray-500 mt-2 text-sm">{t("auth.loginSubtitle")}</p>
         </div>
+
+        <Suspense fallback={null}>
+          <AuthErrorBanner />
+        </Suspense>
 
         {!sent ? (
           <form onSubmit={handleSubmit} className="space-y-4">

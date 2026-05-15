@@ -44,6 +44,8 @@ export interface Festival {
   longitude: number | null;
   image_url: string | null;
   status: FestivalStatus;
+  featured: boolean;
+  landing_blurb: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -73,6 +75,8 @@ export interface Experience {
   ice_cream_price: number | null;
   fahrgeschaefte: string[];
   image_url: string | null;
+  featured: boolean;
+  landing_blurb: string | null;
   created_at: string;
   updated_at: string;
   // Joined fields (from select with joins)
@@ -99,6 +103,8 @@ export type Database = {
           longitude?: number | null;
           image_url?: string | null;
           status?: FestivalStatus;
+          featured?: boolean;
+          landing_blurb?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -116,6 +122,8 @@ export type Database = {
           longitude?: number | null;
           image_url?: string | null;
           status?: FestivalStatus;
+          featured?: boolean;
+          landing_blurb?: string | null;
           updated_at?: string;
         };
       };
@@ -155,6 +163,8 @@ export type Database = {
           ice_cream_price?: number | null;
           fahrgeschaefte?: string[];
           image_url?: string | null;
+          featured?: boolean;
+          landing_blurb?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -174,6 +184,8 @@ export type Database = {
           ice_cream_price?: number | null;
           fahrgeschaefte?: string[];
           image_url?: string | null;
+          featured?: boolean;
+          landing_blurb?: string | null;
           updated_at?: string;
         };
       };
