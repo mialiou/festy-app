@@ -4,8 +4,9 @@ import { mkdirSync } from "fs";
 mkdirSync("public/icons", { recursive: true });
 
 // Orange rounded-square background + white beer mug SVG illustration
-function makeSvg(size) {
-  const r = size * 0.22; // corner radius
+// maskable=true → full bleed (no rounded corners, Android handles the shape)
+function makeSvg(size, maskable = false) {
+  const r = maskable ? 0 : size * 0.22; // corner radius
   const s = size;
 
   // Beer mug proportions (all relative to size)
@@ -74,4 +75,11 @@ for (const size of [192, 512]) {
     .toFile(`public/icons/icon-${size}x${size}.png`);
   console.log(`✓ icon-${size}x${size}.png`);
 }
+
+// Maskable icon (full bleed, no rounded corners — Android uses this)
+await sharp(Buffer.from(makeSvg(512, true)))
+  .png()
+  .toFile("public/icons/icon-512x512-maskable.png");
+console.log("✓ icon-512x512-maskable.png");
+
 console.log("Done!");
