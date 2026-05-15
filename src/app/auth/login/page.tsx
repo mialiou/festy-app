@@ -2,7 +2,7 @@
 
 import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { createClient } from "@/lib/supabase/client";
+import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import "@/i18n";
 import { useTranslation } from "react-i18next";
 
@@ -38,7 +38,13 @@ export default function LoginPage() {
     setLoading(true);
     setError("");
 
-    const supabase = createClient();
+    // Use plain supabase-js (not @supabase/ssr) so we can set flowType: 'implicit'.
+    // @supabase/ssr hardcodes PKCE, which breaks cross-browser magic links.
+    const supabase = createSupabaseClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      { auth: { flowType: "implicit" } }
+    );
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
