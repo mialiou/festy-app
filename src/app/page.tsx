@@ -63,7 +63,7 @@ export default async function LandingPage() {
           <div className="text-6xl mb-4">🍻</div>
           <h1 className="text-5xl font-extrabold tracking-tight mb-4">Festy</h1>
           <p className="text-xl font-medium opacity-90 mb-3">
-            Track every Masskrug. Remember every Kirchweih.
+            Deine Geschichte. Von Kärwa zu Kärwa.
           </p>
           <p className="text-base opacity-75 mb-10 max-w-sm mx-auto">
             Eine App für Franken, die ihre Bierfeste und Kirchweihbesuche tracken – und mit Freunden teilen wollen.
@@ -217,7 +217,7 @@ export default async function LandingPage() {
 
       {/* ── FOOTER ── */}
       <footer className="py-8 px-6 text-center text-xs text-gray-400 bg-gray-50">
-        <p>Festy © {new Date().getFullYear()} · Made with 🍺 in Nürnberg</p>
+        <p>Festy © {new Date().getFullYear()} · Deine Geschichte. Von Kärwa zu Kärwa.</p>
         <p className="mt-1">
           Bereits Mitglied?{" "}
           <Link href="/auth/login" className="text-orange-600 hover:underline">
