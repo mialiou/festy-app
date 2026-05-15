@@ -16,11 +16,11 @@ type FeaturedExperience = {
 
 // Screenshots you placed in /public/screenshots/
 const screenshots = [
-  { src: "/screenshots/01.jpg", alt: "Festival list" },
-  { src: "/screenshots/02.jpg", alt: "Festival detail" },
-  { src: "/screenshots/03.jpg", alt: "My Fest grid" },
-  { src: "/screenshots/04.jpg", alt: "Experience detail" },
-  { src: "/screenshots/05.jpg", alt: "Log experience" },
+  { src: "/screenshots/01.png", alt: "Festival list" },
+  { src: "/screenshots/02.png", alt: "Festival detail" },
+  { src: "/screenshots/03.png", alt: "My Fest grid" },
+  { src: "/screenshots/04.png", alt: "Experience detail" },
+  { src: "/screenshots/05.png", alt: "Log experience" },
 ];
 
 function formatDateRange(start?: string | null, end?: string | null) {
